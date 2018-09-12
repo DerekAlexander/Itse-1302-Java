@@ -1,0 +1,96 @@
+/**
+* write an application that prompts for and reads a double value representing a monetary
+* amount. then determine the fewest number of each bill and coin needed to represent
+* that amount, starting with the highest (assuming $10 bill is the maximum size needed)
+* Sample run:
+* enter monetary amount: $47.63
+* that's equivalent to:
+* 4 ten dollar bills
+* 1 five dollar bills
+* 2 one dollar bills
+* 2 quarters
+* 1 dime
+* 0 nickels
+* 3 pennies
+* @author Derek Alexander
+* @version 1.1
+*/
+ import java.util.Scanner;
+
+public class MoneyConverter{
+	/**
+	* write an application that prompts for and reads a double value representing a monetary
+	* amount. then determine the fewest number of each bill and coin needed to represent
+	* that amount, starting with the highest (assuming $10 bill is the maximum size needed)
+	*/
+	public static void main(String[] args){
+		// Reserve memory - Declare local variable to store values.
+			double originalAmount;
+			int ten, five, one, quarter, dime, nickel, penny, result;
+			Scanner input = new Scanner(System.in);
+		// Input:
+			// Read a monetary amount via keyboard.
+			System.out.print("Enter monetary amount: ");
+			// Takes the input value of a double.
+			originalAmount = input.nextDouble();
+			// converts to a int by multiplying 100.
+			originalAmount = originalAmount * 100;
+			result = (int)originalAmount;
+		// Processing:
+			// Divide the amount by $10 amount to determine the number of $10.
+			ten = result / 1000;
+			
+			// Calculate the remaining balance.
+			result = result % 1000;
+			
+			// Divide the balance by $5 amount to determine the number of $5.
+			five = result / 500;
+			
+			// Calculate the remaining balance.
+			result = result % 500;
+			
+			// Divide the balance by $1 amount to determine the number of $1.
+			one = result / 100;
+			
+			// Calculate the remaining balance.
+			result = result % 100;
+			
+			// Divide the balance by $0.25 amount to determine the number of $0.25.
+			quarter = result / 25;
+			
+			// Calculate the remaining balance.
+			result = result % 25;
+			
+			// Divide the balance by $0.10 amount to determine the number of $0.10.
+			dime = result / 10;
+			
+			// Calculate the remaining balance.
+			result = result % 10;
+			
+			// Divide the balance by $0.05 amount to determine the number of $0.05.
+			nickel = result / 5;
+			
+			// Calculate the remaining balance.
+			result = result % 5;
+			
+			// The balance is equal to the number of $0.01.
+			penny = result;
+		
+		// Output:
+			System.out.println("That's equivalent to: ");
+			// Display the number of $10.
+			System.out.println (ten + " ten dollar bills ");
+			// Display the number of $5.
+			System.out.println (five + " five dollar bills ");
+			// Display the number of $1.
+			System.out.println (one + " one dollar bills ");
+			// Display the number of $0.25.
+			System.out.println (quarter + " quarters ");
+			// Display the number of $0.10.
+			System.out.println (dime + " dimes ");	
+			// Display the number of $0.05.
+			System.out.println (nickel + " nickels ");
+			// Display the number of $0.01.
+			System.out.println (penny + " pennies ");
+	}
+}
